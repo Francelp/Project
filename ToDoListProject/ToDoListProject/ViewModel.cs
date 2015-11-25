@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -10,33 +11,15 @@ namespace ToDoListProject
 {
     public class ViewModel : INotifyPropertyChanged
     {
-        private int _id;
-        public int id
+        private ObservableCollection<ToDoItem> _toDoItem;
+        public ObservableCollection<ToDoItem> toDoItem
         {
-            get { return _id; }
-            set { _id = value;
-            onPropertyChanged("id");
+            get { return _toDoItem; }
+            set { _toDoItem = value;
+            onPropertyChanged("toDoItem");
             }
         }
-
-        private string _name;
-        public string name
-        {
-            get { return _name; }
-            set { _name = value;
-            onPropertyChanged("name");
-            }
-        }
-
-        private bool _changed;
-        public bool changed
-        {
-            get { return _changed; }
-            set { _changed = value;
-            onPropertyChanged("changed");    
-            }
-        }
-
+        
         private ICommand _addToList;
         public ICommand addToList
         {
