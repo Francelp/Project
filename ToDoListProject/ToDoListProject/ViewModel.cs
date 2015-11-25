@@ -56,10 +56,20 @@ namespace ToDoListProject
             set { _editList = value; }
         }
 
-        public List<string> listOfItems()
+        public ViewModel()
         {
-
+            name = "Piotr";
+            isVisible = true;
+            pokemon = new ObservableCollection<Pokemon>()
+            {
+                new Pokemon("Pikachu","Electric"),
+                new Pokemon("Charmander","Fire"),
+                new Pokemon("Squirtle","water"),
+                new Pokemon("Bulbasaur","Grass"),
+                new Pokemon("Snorlax","normal")
+            };
         }
+
 
         private void AddToList()
         { 
