@@ -67,5 +67,60 @@ namespace TestsToDo
       //Assert
       Assert.IsTrue(actualValue);
         }
+    [TestMethod]
+    public void Test_RemoveFromList_ReturnsTrue_WhenItemIsInTheList()
+    {
+        //Arrange
+        ToDoItem todoItem = new ToDoItem("washing", false);
+        viewModel.toDoItemList.Add(todoItem);
+        //Act
+        bool actualValue = viewModel.toDoItemList.Contains(todoItem);
+        //Assert
+        Assert.IsTrue(actualValue);
+    }
+    [TestMethod]
+    public void Test_RemoveFromList_Returnsfalse_WhenItemIsNotTheList()
+    {
+        //Arrange
+        ToDoItem todoItem = new ToDoItem("Partying", false);
+        ToDoItem notDoingItItem = new ToDoItem("Working", false);
+        viewModel.toDoItemList.Add(todoItem);
+        //Act
+        bool actualValue = viewModel.toDoItemList.Contains(notDoingItItem);
+        //Assert
+        Assert.IsFalse(actualValue);
+    }
+    [TestMethod]
+    public void Test_RemoveFromList_RemovesItemFromList_WhenAnItemExistsInList()
+    {
+        //Arrange
+        ToDoItem todoItem = new ToDoItem("Working", false);
+        viewModel.toDoItemList.Add(todoItem);
+        //Act
+        bool actualValue = viewModel.toDoItemList.Remove(todoItem);
+        //Assert
+        Assert.IsTrue(actualValue);
+    }
+    [TestMethod]
+    public void Test_RemoveFromList_DoNotRemovesItemFromList_WhenAnItemDoesNotExistsInList()
+    {
+        //Arrange
+        ToDoItem todoItem = new ToDoItem("Working", false);
+        ToDoItem notInTheListItem = new ToDoItem("Working", false);
+        viewModel.toDoItemList.Add(todoItem);
+        //Act
+        bool actualValue = viewModel.toDoItemList.Remove(notInTheListItem);
+        //Assert
+        Assert.IsFalse(actualValue);
+    }
+    [TestMethod]
+    public void Test_CanRemoveFromList_ReturnsTrue()
+    {
+        //Arrange
+        //Act
+        bool actualValue = viewModel.removeFromList.CanExecute(null);
+        //Assert
+        Assert.IsTrue(actualValue);
+    }
     }
 }
