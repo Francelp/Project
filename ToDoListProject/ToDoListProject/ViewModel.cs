@@ -94,14 +94,14 @@ namespace ToDoListProject
       toDoItemList = new ObservableCollection<ToDoItem>();
     }
 
-    private bool CanComplete()
+    public bool CanComplete()
     {
       return true;
     }
 
-    private void Complete()
+    public void Complete()
     {
-      if (selectedItemToDo.changed == false)
+      if (toDoItemList.Count > 0)
       {
         selectedItemToDo.changed = true;
       }
@@ -111,12 +111,12 @@ namespace ToDoListProject
     {
       if (toDoItemName != "")
       {
-      int newID = toDoItemList.Count + 1;
+        int newID = toDoItemList.Count + 1;
         ToDoItem newItem = new ToDoItem(toDoItemName, false);
 
-      toDoItemList.Add(newItem);
-      selectedItemToDo = toDoItemList[0];
-    }
+        toDoItemList.Add(newItem);
+        selectedItemToDo = toDoItemList[0];
+      }
     }
     private bool CanAddToList(string toDoItemName)
     {
@@ -137,8 +137,8 @@ namespace ToDoListProject
 
     private void EditList(string toDoItemName)
     {
-      if (toDoItemName != "")
-    {
+      if (toDoItemName != "" && toDoItemList.Count > 0)
+      {
         selectedItemToDo.name = toDoItemName;
       }
     }
