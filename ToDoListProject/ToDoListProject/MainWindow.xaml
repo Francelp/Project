@@ -19,18 +19,21 @@
     <Button Command ="{Binding editList}" Name="EditButton" Content="Edit" VerticalAlignment="Bottom" Width ="80" Height="50"  HorizontalAlignment="Left" Grid.Column="1" Margin="10,10,10,10"/>
     <Button Command="{Binding complete}" Name="CompletedButton" Content="Completed?"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
     <Label FontSize="20" HorizontalAlignment="Center"  Margin="0,10,0,0" Content="To Do List" VerticalAlignment="Top" Grid.Column="1"/>
-        <ScrollViewer>
-            <ListView ItemsSource="{Binding pokemon}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <StackPanel>
-                                <TextBlock Text="{Binding name}"/>
-                            </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer>
-    </Grid>
+      <ListView ItemsSource="{Binding toDoItem}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="150"/>
+              <ColumnDefinition Width="150"/>
+              <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding id}"/>
+            <TextBlock Grid.Column="1" Text="{Binding name}"/>
+            <TextBlock Grid.Column="2" Text="{Binding changed}"/>
+          </Grid>
+        </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+  </Grid>
 </Window>
