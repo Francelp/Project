@@ -9,16 +9,6 @@ namespace ToDoListProject
 {
   public class ToDoItem : INotifyPropertyChanged
   {
-    private int _id;
-    public int id
-    {
-      get { return _id; }
-      set
-      {
-        _id = value;
-        onPropertyChanged("id");
-      }
-    }
 
     private string _name;
     public string name
@@ -42,9 +32,8 @@ namespace ToDoListProject
       }
     }
 
-    public ToDoItem(int Id, string Name, bool Changed)
+    public ToDoItem(string Name, bool Changed)
     {
-      id = Id;
       name = Name;
       changed = Changed;
     }
