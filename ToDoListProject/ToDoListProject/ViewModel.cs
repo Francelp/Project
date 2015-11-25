@@ -15,78 +15,78 @@ namespace ToDoListProject
         public ObservableCollection<ToDoItem> toDoItemList
         {
             get { return _toDoItemList; }
-      set
-      {
+            set
+            {
                 _toDoItemList = value;
                 onPropertyChanged("toDoItemList");
             }
         }
 
-    private ToDoItem _selectedItemToDo;
-    public ToDoItem selectedItemToDo
-    {
-      get { return _selectedItemToDo; }
-      set
-      {
-        _selectedItemToDo = value;
-        onPropertyChanged("selectedItemToDo");
-      }
-    }
+        private ToDoItem _selectedItemToDo;
+        public ToDoItem selectedItemToDo
+        {
+            get { return _selectedItemToDo; }
+            set
+            {
+                _selectedItemToDo = value;
+                onPropertyChanged("selectedItemToDo");
+            }
+        }
 
         private ICommand _addToList;
         public ICommand addToList
         {
-      get
-      {
+            get
+            {
                 if (_addToList == null)
                 {
                     _addToList = new Command<string>(AddToList, CanAddToList);
                 }
-        return _addToList;
-      }
+                return _addToList;
+            }
             set { _addToList = value; }
         }
 
         private ICommand _removeFromList;
         public ICommand removeFromList
         {
-      get
-      {
+            get
+            {
                 if (_removeFromList == null)
                 {
                     _removeFromList = new Command(RemoveFromList, CanRemoveFromList);
                 }
-        return _removeFromList;
-      }
+                return _removeFromList;
+            }
             set { _removeFromList = value; }
         }
 
         private ICommand _editList;
         public ICommand editList
         {
-      get
-      {
+            get
+            {
                 if (_editList == null)
                 {
-                    _editList = new Command(EditList, CanEditList);
+                    _editList = new Command<string>(EditList, CanEditList);
                 }
-        return _editList;
-      }
+                return _editList;
+            }
             set { _editList = value; }
         }
 
         private ICommand _complete;
         public ICommand complete
         {
-      get
-      {
+            get
+            {
                 if (_complete == null)
                 {
-          _complete = new Command(Complete, CanComplete);
-        }
-        return _complete;
+                    _complete = new Command(Complete, CanComplete);
                 }
-          set { _complete = value; }
+                return _complete;
+            }
+            set { _complete = value; }
         }
 
         public ViewModel()
@@ -96,7 +96,7 @@ namespace ToDoListProject
 
         private bool CanComplete()
         {
-          return true;
+            return true;
         }
 
         private void Complete()
@@ -109,16 +109,16 @@ namespace ToDoListProject
 
         private void AddToList(string toDoItemName)
         {
+            if (toDoItemName != "")
+            {
+                int newID = toDoItemList.Count + 1;
+                ToDoItem newItem = new ToDoItem(toDoItemName, false);
+
+                toDoItemList.Add(newItem);
 
 
-            int newID = toDoItemList.Count + 1;
-
-            ToDoItem newItem = new ToDoItem(newID, toDoItemName, false);
-
-            toDoItemList.Add(newItem);
-
-
-            selectedItemToDo = toDoItemList[0];
+                selectedItemToDo = toDoItemList[0];
+            }
         }
         private bool CanAddToList(string toDoItemName)
         {
@@ -136,17 +136,20 @@ namespace ToDoListProject
         {
             return true;
         }
-        
-        private void EditList()
-        {
 
+        private void EditList(string toDoItemName)
+        {
+            if (toDoItemName != "")
+            {
+                selectedItemToDo.name = toDoItemName;
+            }
         }
-        private bool CanEditList()
+        private bool CanEditList(string toDoItemName)
         {
             return true;
         }
-        
-        
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void onPropertyChanged(string propertyName)
         {
