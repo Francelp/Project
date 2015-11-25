@@ -3,39 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewModel="clr-namespace:ToDoListProject"
         Title="To Do List" Height="300" Width="525">
-    <Window.DataContext>
-        <viewModel:ViewModel/>
-    </Window.DataContext>
+  <Window.DataContext>
+    <viewModel:ViewModel/>
+  </Window.DataContext>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+  <Window.Resources>
+    <viewModel:CompletedConverter x:Key="completedConverter"/>
+  </Window.Resources>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="3*"></ColumnDefinition>
+      <ColumnDefinition Width="2*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
         <Button Command="{Binding addToList}" CommandParameter="{Binding Text, ElementName=AddingTextBox}" Name="AddButton" Content="Add"  HorizontalAlignment="Left" VerticalAlignment="Center"  Width="80" Height="50" Grid.Column="1" Margin=" 10,10,10,10"/>
-        <Button Command ="{Binding removeFromList}" Name="RemoveButton" Content="Remove"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
-        <Button Command ="{Binding editList}" Name="EditButton" Content="Edit" VerticalAlignment="Bottom" Width ="80" Height="50"  HorizontalAlignment="Left" Grid.Column="1" Margin="10,10,10,10"/>
-        <Button Command="{Binding complete}" Name="CompletedButton" Content="Completed?"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
-        <Label FontSize="20" HorizontalAlignment="Center"  Margin="0,10,0,0" Content="To Do List" VerticalAlignment="Top" Grid.Column="1"/>
-        <StackPanel>
-            <ListView ItemsSource="{Binding toDoItemList}" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10,10,10,10">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="10"/>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="30"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding id}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding name}"/>
-                            <TextBlock Grid.Column="2" Text="{Binding changed}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <TextBox Name ="ChangingTextBox" Text="{Binding selectedItemToDo.name}" Margin="10"/>
+    <Button Command ="{Binding removeFromList}" Name="RemoveButton" Content="Remove"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
+    <Button Command ="{Binding editList}" Name="EditButton" Content="Edit" VerticalAlignment="Bottom" Width ="80" Height="50"  HorizontalAlignment="Left" Grid.Column="1" Margin="10,10,10,10"/>
+    <Button Command="{Binding complete}" Name="CompletedButton" Content="Completed?"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
+    <Label FontSize="20" HorizontalAlignment="Center"  Margin="0,10,0,0" Content="To Do List" VerticalAlignment="Top" Grid.Column="1"/>
+    <StackPanel>
+      <ListView ItemsSource="{Binding toDoItem}" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="60"/>
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="0" Text="{Binding id}"/>
+              <TextBlock Grid.Column="1" Text="{Binding name}"/>
+              <TextBlock Grid.Column="2" Text="{Binding changed, Converter={StaticResource completedConverter}}"/>
+            </Grid>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <TextBox Name ="ChangingTextBox" Text="{Binding selectedItemToDo.name}" Margin="10"/>
             <TextBox Name="AddingTextBox" Margin="10"/>
-        </StackPanel>
-    </Grid>
+    </StackPanel>
+  </Grid>
 </Window>

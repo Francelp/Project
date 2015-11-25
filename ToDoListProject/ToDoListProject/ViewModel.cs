@@ -11,36 +11,28 @@ namespace ToDoListProject
 {
     public class ViewModel : INotifyPropertyChanged
     {
-        private int myVar;
-
-        public int MyProperty
-        {
-            get { return myVar; }
-            set { myVar = value; }
-        }
-
-        private ObservableCollection<ToDoItem> _toDoItemList;
-        public ObservableCollection<ToDoItem> toDoItemList
+        private ObservableCollection<ToDoItem> _toDoItem;
+        public ObservableCollection<ToDoItem> toDoItem
         {
             get { return _toDoItemList; }
-            set
-            {
+      set
+      {
                 _toDoItemList = value;
                 onPropertyChanged("toDoItemList");
             }
         }
 
-        private ToDoItem _selectedItemToDo;
-        public ToDoItem selectedItemToDo
-        {
-            get { return _selectedItemToDo; }
-            set
-            {
-                _selectedItemToDo = value;
-                onPropertyChanged("selectedItemToDo");
-            }
-        }
-
+    private ToDoItem _selectedItemToDo;
+    public ToDoItem selectedItemToDo
+    {
+      get { return _selectedItemToDo; }
+      set
+      {
+        _selectedItemToDo = value;
+        onPropertyChanged("selectedItemToDo");
+      }
+    }
+        
         private ToDoItem _itemToAdd;
         public ToDoItem itemToAdd
         {
@@ -55,57 +47,57 @@ namespace ToDoListProject
         private ICommand _addToList;
         public ICommand addToList
         {
-            get
-            {
+      get
+      {
                 if (_addToList == null)
                 {
                     _addToList = new Command<string>(AddToList, CanAddToList);
                 }
-                return _addToList;
-            }
+        return _addToList;
+      }
             set { _addToList = value; }
         }
 
         private ICommand _removeFromList;
         public ICommand removeFromList
         {
-            get
-            {
+      get
+      {
                 if (_removeFromList == null)
                 {
                     _removeFromList = new Command(RemoveFromList, CanRemoveFromList);
                 }
-                return _removeFromList;
-            }
+        return _removeFromList;
+      }
             set { _removeFromList = value; }
         }
 
         private ICommand _editList;
         public ICommand editList
         {
-            get
-            {
+      get
+      {
                 if (_editList == null)
                 {
                     _editList = new Command(EditList, CanEditList);
                 }
-                return _editList;
-            }
+        return _editList;
+      }
             set { _editList = value; }
         }
 
         private ICommand _complete;
         public ICommand complete
         {
-            get
-            {
+      get
+      {
                 if (_complete == null)
                 {
-                    _complete = new Command(Complete, CanComplete);
+          _complete = new Command(Complete, CanComplete);
+        }
+        return _complete;
                 }
-                return _complete;
-            }
-            set { _complete = value; }
+          set { _complete = value; }
         }
 
         public ViewModel()
@@ -115,7 +107,7 @@ namespace ToDoListProject
 
         private bool CanComplete()
         {
-            return true;
+          return true;
         }
 
         private void Complete()
@@ -150,7 +142,7 @@ namespace ToDoListProject
         {
             return true;
         }
-
+        
         private void EditList()
         {
 
@@ -159,8 +151,8 @@ namespace ToDoListProject
         {
             return true;
         }
-
-
+        
+        
         public event PropertyChangedEventHandler PropertyChanged;
         private void onPropertyChanged(string propertyName)
         {
