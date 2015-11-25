@@ -22,16 +22,16 @@ namespace ToDoListProject
             }
         }
 
-        private ToDoItem _selectedItemToDo;
-        public ToDoItem selectedItemToDo
-        {
-          get { return _selectedItemToDo; }
-          set
-          {
-            _selectedItemToDo = value;
-            onPropertyChanged("selectedItemToDo");
-          }
-        }
+    private ToDoItem _selectedItemToDo;
+    public ToDoItem selectedItemToDo
+    {
+      get { return _selectedItemToDo; }
+      set
+      {
+        _selectedItemToDo = value;
+        onPropertyChanged("selectedItemToDo");
+      }
+    }
         
         private ToDoItem _itemToAdd;
         public ToDoItem itemToAdd
@@ -47,14 +47,14 @@ namespace ToDoListProject
         private ICommand _addToList;
         public ICommand addToList
         {
-        get
-        {
-                    if (_addToList == null)
-                    {
-                        _addToList = new Command<string>(AddToList, CanAddToList);
-                    }
-            return _addToList;
-          }
+      get
+      {
+                if (_addToList == null)
+                {
+                    _addToList = new Command<string>(AddToList, CanAddToList);
+                }
+        return _addToList;
+      }
             set { _addToList = value; }
         }
 
@@ -75,14 +75,14 @@ namespace ToDoListProject
         private ICommand _editList;
         public ICommand editList
         {
-          get
-          {
-                    if (_editList == null)
-                    {
-                        _editList = new Command(EditList, CanEditList);
-                    }
-            return _editList;
-          }
+      get
+      {
+                if (_editList == null)
+                {
+                    _editList = new Command(EditList, CanEditList);
+                }
+        return _editList;
+      }
             set { _editList = value; }
         }
 

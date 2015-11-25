@@ -7,11 +7,11 @@ using System.Windows.Data;
 
 namespace ToDoListProject
 {
-  public class CompletedConverter:IValueConverter
+  public class CompletedConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-      if ((bool) value)
+      if ((bool)value)
       {
         return "Completed";
       }
