@@ -50,7 +50,7 @@ namespace TestsToDo
     public void Test_Complete_DoesntChangeIfNothingSelected()
     {
       //Arrange
- 
+
       //Act
       viewModel.complete.Execute(null);
 
