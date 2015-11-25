@@ -57,6 +57,5 @@ namespace ToDoListProject
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
     }
 }
