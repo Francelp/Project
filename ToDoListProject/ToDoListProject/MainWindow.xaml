@@ -25,6 +25,7 @@
     <StackPanel>
       <ListView  Background="LightGreen" ItemsSource="{Binding toDoItemList}" SelectionMode ="Single" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10" Height="200">
         <ListView.ItemTemplate>
+          
           <DataTemplate>
             <Grid>
               <Grid.ColumnDefinitions>
