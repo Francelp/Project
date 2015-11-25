@@ -21,7 +21,7 @@
     <Button Command="{Binding complete}"  Content="Completed?"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
     <Label FontSize="20" HorizontalAlignment="Center"  Margin="0,10,0,0" Content="To Do List" VerticalAlignment="Top" Grid.Column="1"/>
     <StackPanel>
-      <ListView ItemsSource="{Binding toDoItemList}" SelectionMode ="Single" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10" Height="200" MouseDoubleClick="" >
+      <ListView ItemsSource="{Binding toDoItemList}" SelectionMode ="Single" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10" Height="200">
         <ListView.ItemTemplate>
           <DataTemplate>
             <Grid>

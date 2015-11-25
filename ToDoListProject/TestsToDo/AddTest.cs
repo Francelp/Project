@@ -13,16 +13,14 @@ namespace TestsToDo
     public class AddTest
     {
         [TestMethod]
-        public void Test_AddsToListOfItems_WhenGivenObjectToAdd()
+        public void Test_RemoveFromList_RemovesGivenItemFromTheList_WhenTheListHoldsAtLeastOneItem()
         {
             //Arrange
-            
-
+            ViewModel model = new ViewModel();
             //Act
-
-
-            //Assert
-
+            
+                //Assert
+            Assert.AreEqual(0, booksInCatalogue.Count);
         }
     }
 }
