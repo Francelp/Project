@@ -113,6 +113,10 @@ namespace ToDoListProject
 
         private void AddToList()
         {
+            int i = 4;
+
+            toDoItem.Add(new ToDoItem(i, selectedItemToDo.name, true));
+
             selectedItemToDo = toDoItem[0];
         }
         private bool CanAddToList()

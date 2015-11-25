@@ -34,7 +34,7 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      <TextBox Name ="ChangingTextBox" Text="{Binding selectedItemToDo.name}" Margin="10"/>
+      <TextBox Name ="ChangingTextBox" Text="{Binding selectedItemToDo.name, Mode=TwoWay}" Margin="10"/>
     </StackPanel>
   </Grid>
 </Window>
