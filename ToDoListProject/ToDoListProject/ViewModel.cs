@@ -56,20 +56,28 @@ namespace ToDoListProject
             set { _editList = value; }
         }
 
-        public ViewModel()
+        private ICommand _complete;
+
+        public ICommand complete
         {
-            name = "Piotr";
-            isVisible = true;
-            pokemon = new ObservableCollection<Pokemon>()
-            {
-                new Pokemon("Pikachu","Electric"),
-                new Pokemon("Charmander","Fire"),
-                new Pokemon("Squirtle","water"),
-                new Pokemon("Bulbasaur","Grass"),
-                new Pokemon("Snorlax","normal")
-            };
+            get {
+                if (_complete == null)
+                {
+                    _complete = new Command(Complete,CanComplete);
+                }
+                return _complete; }
+          set { _complete = value; }
         }
 
+        private bool CanComplete()
+        {
+          throw new NotImplementedException();
+        }
+
+        private void Complete()
+        {
+          throw new NotImplementedException();
+        }
 
         private void AddToList()
         { 
