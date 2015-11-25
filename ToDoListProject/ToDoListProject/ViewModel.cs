@@ -101,7 +101,7 @@ namespace ToDoListProject
 
     private void Complete()
     {
-      if (selectedItemToDo!=null)
+      if (selectedItemToDo != null)
       {
         selectedItemToDo.changed = true;
       }
@@ -111,11 +111,8 @@ namespace ToDoListProject
     {
       if (toDoItemName != "")
       {
-        int newID = toDoItemList.Count + 1;
         ToDoItem newItem = new ToDoItem(toDoItemName, false);
-
         toDoItemList.Add(newItem);
-        selectedItemToDo = toDoItemList[0];
       }
     }
     private bool CanAddToList(string toDoItemName)
@@ -137,7 +134,7 @@ namespace ToDoListProject
 
     private void EditList(string toDoItemName)
     {
-      if (toDoItemName != "" && selectedItemToDo!=null)
+      if (toDoItemName != "" && selectedItemToDo != null)
       {
         selectedItemToDo.name = toDoItemName;
       }
