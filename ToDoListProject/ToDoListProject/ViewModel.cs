@@ -89,17 +89,7 @@ namespace ToDoListProject
             set { _complete = value; }
         }
 
-        private bool CanComplete()
-        {
-            return true;
-        }
-
-        private void Complete()
-        {
-
-        }
-
-        private void AddToList()
+        public ViewModel()
         {
             toDoItem = new ObservableCollection<ToDoItem>()
             {
@@ -107,8 +97,22 @@ namespace ToDoListProject
                 new ToDoItem(2,"Ironing", false),
                 new ToDoItem(3, "Washing", true)
             };
-            
+        }
+        private bool CanComplete()
+        {
+            return true;
+        }
 
+        private void Complete()
+        {
+            if (selectedItemToDo.changed == false)
+            {
+                selectedItemToDo.changed = true;
+            }
+        }
+
+        private void AddToList()
+        {
             selectedItemToDo = toDoItem[0];
         }
         private bool CanAddToList()
@@ -118,6 +122,10 @@ namespace ToDoListProject
 
         private void RemoveFromList()
         {
+            if (toDoItem.Contains(selectedItemToDo))
+            {
+                toDoItem.Remove(selectedItemToDo);
+            }
         }
         private bool CanRemoveFromList()
         {
