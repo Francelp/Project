@@ -28,7 +28,7 @@ namespace TestsToDo
       viewModel.selectedItemToDo = new ToDoItem("", true);
 
       //Act
-      viewModel.Complete();
+      viewModel.complete.Execute(null);
 
       //Assert
       Assert.IsTrue(viewModel.selectedItemToDo.changed);
@@ -41,29 +41,28 @@ namespace TestsToDo
       viewModel.selectedItemToDo = new ToDoItem("", false);
 
       //Act
-      viewModel.Complete();
+      viewModel.complete.Execute(null);
 
       //Assert
       Assert.IsTrue(viewModel.selectedItemToDo.changed);
     }
     [TestMethod]
-    public void Test_Complete_DoesntChangeIfNothingInList()
+    public void Test_Complete_DoesntChangeIfNothingSelected()
     {
       //Arrange
-      viewModel.selectedItemToDo = new ToDoItem("", false);
-
+ 
       //Act
-      viewModel.Complete();
+      viewModel.complete.Execute(null);
 
       //Assert
-      Assert.IsFalse(viewModel.selectedItemToDo.changed);
+      Assert.IsNull(viewModel.selectedItemToDo);
     }
     [TestMethod]
     public void Test_CanComplete_ReturnsTrue_WhenCalled()
     {
       //Arrange
       //Act
-      bool actualValue = viewModel.CanComplete();
+      bool actualValue = viewModel.complete.CanExecute(null);
       //Assert
       Assert.IsTrue(actualValue);
     }
