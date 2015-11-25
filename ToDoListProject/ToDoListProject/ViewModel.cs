@@ -103,11 +103,11 @@ namespace ToDoListProject
     {
       if (toDoItemList.Count > 0)
       {
-        if (selectedItemToDo.changed == false)
-        {
-          selectedItemToDo.changed = true;
-        }
+      if (selectedItemToDo.changed == false)
+      {
+        selectedItemToDo.changed = true;
       }
+    }
     }
 
     private void AddToList(string toDoItemName)
