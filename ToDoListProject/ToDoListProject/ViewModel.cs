@@ -11,8 +11,8 @@ namespace ToDoListProject
 {
     public class ViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<ToDoItem> _toDoItem;
-        public ObservableCollection<ToDoItem> toDoItem
+        private ObservableCollection<ToDoItem> _toDoItemList;
+        public ObservableCollection<ToDoItem> toDoItemList
         {
             get { return _toDoItemList; }
       set

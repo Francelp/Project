@@ -21,7 +21,7 @@
     <Button Command="{Binding complete}" Name="CompletedButton" Content="Completed?"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
     <Label FontSize="20" HorizontalAlignment="Center"  Margin="0,10,0,0" Content="To Do List" VerticalAlignment="Top" Grid.Column="1"/>
     <StackPanel>
-      <ListView ItemsSource="{Binding toDoItem}" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10">
+      <ListView ItemsSource="{Binding toDoItemList}" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10">
         <ListView.ItemTemplate>
           <DataTemplate>
             <Grid>
