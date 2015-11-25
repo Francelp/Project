@@ -96,7 +96,10 @@ namespace ToDoListProject
 
     private void Complete()
     {
-
+      if (selectedItemToDo.changed == false)
+      {
+        selectedItemToDo.changed = true;
+      }
     }
 
     private void AddToList()
@@ -117,6 +120,10 @@ namespace ToDoListProject
 
     private void RemoveFromList()
     {
+      if (toDoItem.Contains(selectedItemToDo))
+      {
+        toDoItem.Remove(selectedItemToDo);
+      }
     }
     private bool CanRemoveFromList()
     {
