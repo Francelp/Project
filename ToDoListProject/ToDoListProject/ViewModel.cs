@@ -45,7 +45,6 @@ namespace ToDoListProject
         }
 
         private ICommand _editList;
-
         public ICommand editList
         {
             get {
@@ -56,12 +55,15 @@ namespace ToDoListProject
                 return _editList; }
             set { _editList = value; }
         }
-        
-        
 
+        public List<string> listOfItems()
+        {
+
+        }
 
         private void AddToList()
         { 
+            
         }
         private bool CanAddToList()
         {

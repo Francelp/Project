@@ -16,7 +16,7 @@ namespace TestsToDo
         public void Test_AddsToListOfItems_WhenGivenObjectToAdd()
         {
             //Arrange
-            AddToList add = new AddToList();
+            
 
             //Act
 
