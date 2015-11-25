@@ -24,56 +24,78 @@ namespace ToDoListProject
         public ObservableCollection<ToDoItem> toDoItem
         {
             get { return _toDoItem; }
-            set { _toDoItem = value;
+      set
+      {
+        _toDoItem = value;
             onPropertyChanged("toDoItem");
             }
         }
+
+    private ToDoItem _selectedItemToDo;
+    public ToDoItem selectedItemToDo
+    {
+      get { return _selectedItemToDo; }
+      set
+      {
+        _selectedItemToDo = value;
+        onPropertyChanged("selectedItemToDo");
+      }
+    }
         
+
         private ICommand _addToList;
         public ICommand addToList
         {
-            get {
+      get
+      {
                 if (_addToList == null)
                 {
                     _addToList = new Command(AddToList, CanAddToList);
                 }
-                return _addToList; }
+        return _addToList;
+      }
             set { _addToList = value; }
         }
 
         private ICommand _removeFromList;
         public ICommand removeFromList
         {
-            get {
+      get
+      {
                 if (_removeFromList == null)
                 {
                     _removeFromList = new Command(RemoveFromList, CanRemoveFromList);
                 }
-                return _removeFromList; }
+        return _removeFromList;
+      }
             set { _removeFromList = value; }
         }
 
         private ICommand _editList;
         public ICommand editList
         {
-            get {
+      get
+      {
                 if (_editList == null)
                 {
                     _editList = new Command(EditList, CanEditList);
                 }
-                return _editList; }
+        return _editList;
+      }
             set { _editList = value; }
         }
 
         private ICommand _complete;
         public ICommand complete
         {
-            get {
+      get
+      {
                 if (_complete == null)
                 {
-                    _complete = new Command(Complete,CanComplete);
+          _complete = new Command(Complete, CanComplete);
+        }
+        return _complete;
                 }
-                return _complete; }
           set { _complete = value; }
         }
 
@@ -95,6 +117,8 @@ namespace ToDoListProject
                 new ToDoItem(2,"Ironing", false),
                 new ToDoItem(3, "Washing", true)
             };
+
+      selectedItemToDo = toDoItem[0];
         }
         private bool CanAddToList()
         {
