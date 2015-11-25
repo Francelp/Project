@@ -56,10 +56,7 @@ namespace ToDoListProject
             set { _editList = value; }
         }
 
-        public List<string> listOfItems()
-        {
-
-        }
+       
 
         private void AddToList()
         { 
