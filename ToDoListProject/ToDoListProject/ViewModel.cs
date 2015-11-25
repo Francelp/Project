@@ -57,7 +57,6 @@ namespace ToDoListProject
         }
 
         private ICommand _complete;
-
         public ICommand complete
         {
             get {
@@ -71,12 +70,12 @@ namespace ToDoListProject
 
         private bool CanComplete()
         {
-          throw new NotImplementedException();
+          return true;
         }
 
         private void Complete()
         {
-          throw new NotImplementedException();
+
         }
 
         private void AddToList()
