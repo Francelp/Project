@@ -101,9 +101,12 @@ namespace ToDoListProject
 
     private void Complete()
     {
-      if (selectedItemToDo.changed == false)
+      if (toDoItemList.Count > 0)
       {
-        selectedItemToDo.changed = true;
+        if (selectedItemToDo.changed == false)
+        {
+          selectedItemToDo.changed = true;
+        }
       }
     }
 
@@ -137,7 +140,7 @@ namespace ToDoListProject
 
     private void EditList(string toDoItemName)
     {
-      if (toDoItemName != "")
+      if (toDoItemName != "" && toDoItemList.Count>0)
       {
         selectedItemToDo.name = toDoItemName;
       }

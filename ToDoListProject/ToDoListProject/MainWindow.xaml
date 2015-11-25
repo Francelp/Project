@@ -6,7 +6,9 @@
   <Window.DataContext>
     <viewModel:ViewModel/>
   </Window.DataContext>
-
+  <Window.Background>
+    <SolidColorBrush Color="AliceBlue"/>
+  </Window.Background>
   <Window.Resources>
     <viewModel:CompletedConverter x:Key="completedConverter"/>
   </Window.Resources>
@@ -15,18 +17,18 @@
       <ColumnDefinition Width="3*"></ColumnDefinition>
       <ColumnDefinition Width="2*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
-    <Button Command="{Binding addToList}" CommandParameter="{Binding Text, ElementName=AddingTextBox}" Content="Add"  HorizontalAlignment="Left" VerticalAlignment="Center"  Width="80" Height="50" Grid.Column="1" Margin=" 10,10,10,10"/>
-    <Button Command ="{Binding removeFromList}" Content="Remove"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
-    <Button Command ="{Binding editList}"  CommandParameter="{Binding Text,ElementName=AddingTextBox}" Content="Edit" VerticalAlignment="Bottom" Width ="80" Height="50"  HorizontalAlignment="Left" Grid.Column="1" Margin="10,10,10,10"/>
-    <Button Command="{Binding complete}"  Content="Completed?"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
-    <Label FontSize="20" HorizontalAlignment="Center"  Margin="0,10,0,0" Content="To Do List" VerticalAlignment="Top" Grid.Column="1"/>
+    <Button  Background="AntiqueWhite"  Command="{Binding addToList}" CommandParameter="{Binding Text, ElementName=AddingTextBox}" Content="Add"  HorizontalAlignment="Left" VerticalAlignment="Center"  Width="80" Height="50" Grid.Column="1" Margin=" 10,10,10,10"/>
+    <Button Background="LightBlue" Command ="{Binding removeFromList}" Content="Remove"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
+    <Button  Background="LightGoldenrodYellow" Command ="{Binding editList}"  CommandParameter="{Binding Text,ElementName=AddingTextBox}" Content="Edit" VerticalAlignment="Bottom" Width ="80" Height="50"  HorizontalAlignment="Left" Grid.Column="1" Margin="10,10,10,10"/>
+    <Button Background ="LightPink" Command="{Binding complete}"  Content="Completed?"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="50" Grid.Column="1" Margin="10,10,10,10"/>
+    <Label  Background="LemonChiffon" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"  Margin="0,10,0,0" Content="To Do List" VerticalAlignment="Top" Grid.Column="1"/>
     <StackPanel>
-      <ListView ItemsSource="{Binding toDoItemList}" SelectionMode ="Single" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10" Height="200">
+      <ListView  Background="LightGreen" ItemsSource="{Binding toDoItemList}" SelectionMode ="Single" SelectedItem="{Binding selectedItemToDo, Mode=TwoWay}" Margin="10" Height="200">
         <ListView.ItemTemplate>
           <DataTemplate>
             <Grid>
               <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="210"/>
                 <ColumnDefinition Width="60"/>
               </Grid.ColumnDefinitions>
               <TextBlock Grid.Column="0" Text="{Binding name}"/>
