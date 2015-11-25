@@ -70,7 +70,7 @@ namespace ToDoListProject
 
         private bool CanComplete()
         {
-          return false;
+          return true;
         }
 
         private void Complete()
@@ -79,8 +79,13 @@ namespace ToDoListProject
         }
 
         private void AddToList()
-        { 
-            
+        {
+            toDoItem = new ObservableCollection<ToDoItem>()
+            {
+                new ToDoItem(1,"Shopping", false),
+                new ToDoItem(2,"Ironing", false),
+                new ToDoItem(3, "Washing", true)
+            };
         }
         private bool CanAddToList()
         {
