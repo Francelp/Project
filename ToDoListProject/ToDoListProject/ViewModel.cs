@@ -56,6 +56,28 @@ namespace ToDoListProject
             set { _editList = value; }
         }
 
+        private ICommand _complete;
+        public ICommand complete
+        {
+            get {
+                if (_complete == null)
+                {
+                    _complete = new Command(Complete,CanComplete);
+                }
+                return _complete; }
+          set { _complete = value; }
+        }
+
+        private bool CanComplete()
+        {
+          return true;
+        }
+
+        private void Complete()
+        {
+
+        }
+
         private void AddToList()
         { 
             
