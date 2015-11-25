@@ -62,7 +62,6 @@ namespace ToDoListProject
         }
 
         private ICommand _editList;
-
         public ICommand editList
         {
             get {
