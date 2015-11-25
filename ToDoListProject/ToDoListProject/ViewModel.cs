@@ -11,14 +11,14 @@ namespace ToDoListProject
 {
     public class ViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<ToDoItem> _toDoItem;
-        public ObservableCollection<ToDoItem> toDoItem
+        private ObservableCollection<ToDoItem> _toDoItemList;
+        public ObservableCollection<ToDoItem> toDoItemList
         {
-            get { return _toDoItem; }
+            get { return _toDoItemList; }
             set
             {
-                _toDoItem = value;
-                onPropertyChanged("toDoItem");
+                _toDoItemList = value;
+                onPropertyChanged("toDoItemList");
             }
         }
 
@@ -33,6 +33,17 @@ namespace ToDoListProject
             }
         }
 
+        private ToDoItem _itemToAdd;
+        public ToDoItem itemToAdd
+        {
+            get { return _itemToAdd; }
+            set
+            {
+                _itemToAdd = value;
+                onPropertyChanged("itemToAdd");
+            }
+        }
+
         private ICommand _addToList;
         public ICommand addToList
         {
@@ -40,7 +51,7 @@ namespace ToDoListProject
             {
                 if (_addToList == null)
                 {
-                    _addToList = new Command(AddToList, CanAddToList);
+                    _addToList = new Command<string>(AddToList, CanAddToList);
                 }
                 return _addToList;
             }
@@ -91,13 +102,9 @@ namespace ToDoListProject
 
         public ViewModel()
         {
-            toDoItem = new ObservableCollection<ToDoItem>()
-            {
-                new ToDoItem(1,"Shopping", false),
-                new ToDoItem(2,"Ironing", false),
-                new ToDoItem(3, "Washing", true)
-            };
+            toDoItemList = new ObservableCollection<ToDoItem>();
         }
+
         private bool CanComplete()
         {
             return true;
@@ -111,24 +118,24 @@ namespace ToDoListProject
             }
         }
 
-        private void AddToList()
+        private void AddToList(string toDoItemName)
         {
-            int i = 4;
+            int newID = toDoItemList.Count + 1;
+            ToDoItem newItem = new ToDoItem(newID, toDoItemName, false);
 
-            toDoItem.Add(new ToDoItem(i, selectedItemToDo.name, true));
-
-            selectedItemToDo = toDoItem[0];
+            toDoItemList.Add(newItem);
+            selectedItemToDo = toDoItemList[0];
         }
-        private bool CanAddToList()
+        private bool CanAddToList(string toDoItemName)
         {
             return true;
         }
 
         private void RemoveFromList()
         {
-            if (toDoItem.Contains(selectedItemToDo))
+            if (toDoItemList.Contains(selectedItemToDo))
             {
-                toDoItem.Remove(selectedItemToDo);
+                toDoItemList.Remove(selectedItemToDo);
             }
         }
         private bool CanRemoveFromList()
