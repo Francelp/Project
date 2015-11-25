@@ -11,6 +11,15 @@ namespace ToDoListProject
 {
     public class ViewModel : INotifyPropertyChanged
     {
+        private int myVar;
+
+        public int MyProperty
+        {
+            get { return myVar; }
+            set { myVar = value; }
+        }
+        
+
         private ObservableCollection<ToDoItem> _toDoItem;
         public ObservableCollection<ToDoItem> toDoItem
         {
@@ -94,6 +103,7 @@ namespace ToDoListProject
 
         private void RemoveFromList()
         {
+            toDoItem.Remove
         }
         private bool CanRemoveFromList()
         {
