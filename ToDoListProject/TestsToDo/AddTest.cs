@@ -13,7 +13,7 @@ namespace TestsToDo
     public class AddTest
     {
         [TestMethod]
-        public void Test_AddsToListOfItems_WhenGivenObjectToAdd()
+        public void Test_AddToList_AddsToListOfItems_WhenGivenObjectToAdd()
         {
             //Arrange
             

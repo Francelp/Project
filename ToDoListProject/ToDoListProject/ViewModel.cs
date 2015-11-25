@@ -32,17 +32,6 @@ namespace ToDoListProject
         onPropertyChanged("selectedItemToDo");
       }
     }
-        
-        private ToDoItem _itemToAdd;
-        public ToDoItem itemToAdd
-        {
-            get { return _itemToAdd; }
-            set
-            {
-                _itemToAdd = value;
-                onPropertyChanged("itemToAdd");
-            }
-        }
 
         private ICommand _addToList;
         public ICommand addToList
@@ -120,10 +109,15 @@ namespace ToDoListProject
 
         private void AddToList(string toDoItemName)
         {
+
+
             int newID = toDoItemList.Count + 1;
+
             ToDoItem newItem = new ToDoItem(newID, toDoItemName, false);
 
             toDoItemList.Add(newItem);
+
+
             selectedItemToDo = toDoItemList[0];
         }
         private bool CanAddToList(string toDoItemName)
