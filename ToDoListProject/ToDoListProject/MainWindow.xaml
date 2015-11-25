@@ -7,7 +7,7 @@
         <ColumnDefinition Width="*"></ColumnDefinition>
         <ColumnDefinition Width="*"></ColumnDefinition>
       </Grid.ColumnDefinitions>
-    <TextBlock Name="ToDoListBlock" Grid.Column="0" Height="200" Margin="10,10,10,10"/>
+    <TextBlock Text="{Binding item}" Name="ToDoListBlock" Grid.Column="0" Height="200" Margin="10,10,10,10"/>
     <Button Name="AddButton" Content="Add"  VerticalAlignment="Top"  Width="80" Height="50" Grid.Column="1" Margin=" 10,10,10,10"/>
     <Button Name="RemoveButton" Content="Remove"  VerticalAlignment="Top" Width="80" Height="50" Grid.Column="1" Margin="10,70,10,10"/>
     <Button Name="EditButton" Content="Edit" VerticalAlignment="Bottom" Width ="80" Height="50" Grid.Column="1" Margin="10,10,10,70"/>
