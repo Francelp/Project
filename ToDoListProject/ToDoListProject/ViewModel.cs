@@ -70,7 +70,7 @@ namespace ToDoListProject
 
         private bool CanComplete()
         {
-          return true;
+          return false;
         }
 
         private void Complete()
